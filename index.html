@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head><title>
+		Calculator
+		</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+	<div class="container">
+		
+			<div class="row section1">
+				<div class="col-xs-6 col-md-6 col-sm-6">
+				 <h1>Student Grade<br> Calcy</h1>
+				</div>
+				<div class="col-xs-6 col-md-6 col-sm-6 for">
+					<form>
+						<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="enter your physics marks" id="phy">
+   
+  </div>
+						<br><div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="enter your chemistry marks" id="chem">
+   
+  </div>
+						<br>
+						<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="enter your biology marks" id="bio">
+   
+  </div>
+						<br>
+						<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="enter your Maths marks" id="math">
+    
+  </div>
+
+					<input type="button" name=" " value="showpercentage" 
+						  class="app-form-button" onclick="calcy()">
+					</form>
+				</div>
+				
+				<div class="cont showdata">
+					
+					<p id="showData"></p>
+					
+				</div>
+					
+			</div>
+		</div>
+	<script>
+		function calcy()
+		{
+			let phy=document.getElementById('phy').value;
+			let chem=document.getElementById('chem').value;
+			let bio=document.getElementById('bio').value;
+			let maths=document.getElementById('math').value;
+			let grades=" ";
+			
+			let totalMarks=parseFloat(phy)+parseFloat(chem)+parseFloat(bio)+parseFloat(maths);
+			
+			
+			let perc=(totalMarks/400)*100;
+			
+			
+			if(perc>=90 && perc<=100)
+				{
+					grades='A';
+				}
+			else if(perc>=80 && perc<90)
+				{
+					grades='B';
+				}
+			else if(perc>=70 && perc<80)
+				{
+					grades='C';
+				}
+			else if(perc>=60 && perc<70)
+				{
+					grades='D';
+				}
+			else if(perc>=50 && perc<60)
+				{
+					grades='E';
+				}
+				else 
+				{
+					grades='F';
+				}
+			document.getElementById('showData').innerHTML=
+				` Out of 400 your total is ${totalMarks} and percentage is ${perc}%.<br> your grade is ${grades}`
+		}
+		
+			
+	
+		</script>
+	</body>
+</html>
